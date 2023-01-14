@@ -7,7 +7,7 @@ import com.almasb.fxgl.physics.PhysicsComponent;
 
 public class BatComponent extends Component {
 
-   public static final double BAT_SPEED = 500;
+    public static final double BAT_SPEED = 500;
 
     public PhysicsComponent physics;
 

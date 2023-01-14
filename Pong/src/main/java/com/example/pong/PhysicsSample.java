@@ -4,29 +4,13 @@ import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.entity.Spawns;
 import com.almasb.fxgl.physics.BoundingShape;
 import com.almasb.fxgl.physics.HitBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import com.almasb.fxgl.app.GameApplication;
-import com.almasb.fxgl.app.GameSettings;
-import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.entity.EntityFactory;
-import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
-import javafx.scene.shape.Line;
 
 /**
- * Shows how to use collision handlers and define hitboxes for entities.
- *
- * For collisions to work, entities must have:
- * 1. a type
- * 2. a hit box
- * 3. a CollidableComponent (added by calling collidable() on entity builder)
- * 4. a collision handler
+ * Physics implementation from:
  *
  * @author Almas Baimagambetov (almaslvl@gmail.com)
  */
@@ -35,10 +19,12 @@ public class PhysicsSample extends GameApplication {
     enum Type {
         PLAYER, ENEMY
     }
+
     private Entity Player;
 
     @Override
-    protected void initSettings(GameSettings settings) { }
+    protected void initSettings(GameSettings settings) {
+    }
 
     @Override
     protected void initGame() {
@@ -75,32 +61,6 @@ public class PhysicsSample extends GameApplication {
         });
 
 
-        // the above call uses DSL
-        // if you need more fine-tuned control, see below
-
-//        PhysicsWorld physics = FXGL.getPhysicsWorld();
-//
-//        physics.addCollisionHandler(new CollisionHandler(Type.PLAYER, Type.ENEMY) {
-//            @Override
-//            protected void onHitBoxTrigger(Entity player, Entity enemy, HitBox playerBox, HitBox enemyBox) {
-//                System.out.println(playerBox.getName() + " X " + enemyBox.getName());
-//            }
-//
-//            @Override
-//            protected void onCollisionBegin(Entity player, Entity enemy) {
-//                System.out.println("On Collision Begin");
-//            }
-//
-//            @Override
-//            protected void onCollision(Entity player, Entity enemy) {
-//                System.out.println("On Collision");
-//            }
-//
-//            @Override
-//            protected void onCollisionEnd(Entity player, Entity enemy) {
-//                System.out.println("On Collision End");
-//            }
-//        });
     }
 
     public static void main(String[] args) {
